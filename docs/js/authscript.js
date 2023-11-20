@@ -1,6 +1,6 @@
 function login(username, password) {
     var xhr = new XMLHttpRequest();
-    var url = 'http://test.aic.uz/apex/ins/swagger/auth/';
+    var url = 'https://test.aic.uz/apex/ins/swagger/auth/';
 
     // Формируем данные для запроса
     var data = JSON.stringify({
