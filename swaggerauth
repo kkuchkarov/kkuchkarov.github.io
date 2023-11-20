@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+</head>
+<body>
+    <h1>Авторизация</h1>
+
+    <form id="loginForm">
+        <label for="username">Логин:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <button type="button" onclick="login()">Войти</button>
+    </form>
+
+    <script>
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Проверка логина и пароля (простой пример, не используйте так в реальных проектах!)
+            if (username === "ваш_логин" && password === "ваш_пароль") {
+                // Перенаправление на определенную ссылку
+                window.location.href = "https://example.com/dashboard";
+            } else {
+                alert("Неверный логин или пароль");
+            }
+        }
+    </script>
+</body>
+</html>
