@@ -4,53 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Авторизация</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            max-width: 100%;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #4caf50;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <link rel="stylesheet" href="css/authcss.css">
 </head>
 <body>
     <form id="loginForm">
@@ -65,23 +19,6 @@
         <button type="button" onclick="login()">Войти</button>
     </form>
 
-    <script>
-        function login() {
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-
-            // Проверка логина и пароля (простой пример, не используйте так в реальных проектах!)
-            if (username === "ITCONSULT_TEST" && password === "GROUPIT0611!") {
-                // Перенаправление на определенную ссылку
-                window.location.href = "https://app.swaggerhub.com/apis-docs/apex.kobul/ords-generated_api_for_tengebank_autocredit/2.0.0#/";
-            }
-            if (username === "TENGEBANK_TEST" && password === "TENGEBANK2341!TEST@") {
-                // Перенаправление на определенную ссылку
-                window.location.href = "https://app.swaggerhub.com/apis-docs/apex.kobul/apex-insurance_ap_is/1.0.0";
-            } else {
-                alert("Неверный логин или пароль");
-            }
-        }
-    </script>
+    <script src="js/authscript.js"></script>
 </body>
 </html>
