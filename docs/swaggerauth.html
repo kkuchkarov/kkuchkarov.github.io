@@ -3,22 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Авторизация</title>
-    <link rel="stylesheet" href="css/authcss.css">
+    <title>Снегопад</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .snowflake {
+            position: absolute;
+            background: #fff;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 <body>
-    <form id="loginForm">
-        <h1>Авторизация</h1>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const snowflakes = [];
 
-        <label for="username">Логин:</label>
-        <input type="text" id="username" name="username" required>
+            function createSnowflake() {
+                const snowflake = document.createElement("div");
+                snowflake.className = "snowflake";
+                snowflake.style.left = Math.random() * window.innerWidth + "px";
+                snowflake.style.animationDuration = Math.random() * 3 + 2 + "s";
+                snowflake.style.opacity = Math.random();
+                document.body.appendChild(snowflake);
+                snowflakes.push(snowflake);
 
-        <label for="password">Пароль:</label>
-        <input type="password" id="password" name="password" required>
+                setTimeout(() => {
+                    snowflake.remove();
+                    const index = snowflakes.indexOf(snowflake);
+                    if (index !== -1) {
+                        snowflakes.splice(index, 1);
+                    }
+                }, parseFloat(snowflake.style.animationDuration) * 1000);
+            }
 
-        <button type="button" onclick="login()">Войти</button>
-    </form>
+            setInterval(createSnowflake, 200);
 
-    <script src="js/authscript.js"></script>
+            function updateSnowflakes() {
+                snowflakes.forEach((snowflake) => {
+                    const x = parseFloat(snowflake.style.left);
+                    const y = parseFloat(snowflake.style.top) + 1;
+                    snowflake.style.top = y + "px";
+                    snowflake.style.left = x + Math.sin(y / 50) + "px";
+                });
+            }
+
+            setInterval(updateSnowflakes, 50);
+        });
+    </script>
 </body>
 </html>
